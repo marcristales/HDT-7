@@ -98,7 +98,7 @@ public class Diccionario {
             while ((next = br.readLine()) != null) 
             {
                 String traduccion = "";
-                String[] texto = next.toLowerCase().split(",");
+                String[] texto = next.split(",");
 
                 for (int i = 0; i < texto.length; i++) {
                     
@@ -134,13 +134,14 @@ public class Diccionario {
             }
 
             System.out.println("Archivo traducido con exito");
-            
+
         } catch (Exception e) {
             System.out.println("Error al leer archivo");
         } finally {
 
             try {
-                if (null != write) {
+                if (null != write) 
+                {
                     write.close();
                 }
             } catch (Exception e) {
