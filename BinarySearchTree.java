@@ -49,12 +49,12 @@ class BinarySearchTree {
             inOrderRec(root.left);
 
             try {
-                System.out.println("\n >> " + root.key);
+                System.out.println("\n >> " + root.key + " <<");
                 System.out.println(" Ingles: " + root.value[0]);
                 System.out.println(" Español: " + root.value[1]);
                 System.out.println(" Frances: " + root.value[2]);
             } catch (Exception e) {
-                System.out.println("\n >> " + root.key + " no tiene valor");
+                System.out.println("\n >> " + root.key + " no tiene valor <<");
             }  
 
             inOrderRec(root.right);
