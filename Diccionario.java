@@ -87,7 +87,7 @@ public class Diccionario {
 
             write = new FileWriter(src, true);
             pw = new PrintWriter(write);
-            pw.println("Traduccion: ");
+            pw.println("\nTraduccion: ");
 
         } catch (Exception e) {
             System.out.println("No se encuentra el archivo...");
@@ -98,7 +98,7 @@ public class Diccionario {
             while ((next = br.readLine()) != null) 
             {
                 String traduccion = "";
-                String[] texto = next.split(",");
+                String[] texto = next.split(" ");
 
                 for (int i = 0; i < texto.length; i++) {
                     
