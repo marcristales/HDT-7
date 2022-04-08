@@ -20,11 +20,25 @@ class BinarySearchTree {
         root = null;
     }
 
+    
+    /** 
+     * @param key
+     * @param value
+     * Inserta un nodo al arbol
+     */
     public void insert(String key, String[] value) {
         root = insertRec(root, key, value);
     }
 
 
+    
+    /** 
+     * @param root
+     * @param key
+     * @param value
+     * @return Node
+     * Funcion recursiva para insertar la llave al BST
+     */
     public Node insertRec(Node root, String key, String[] value) {
 
         if (root == null) {
@@ -43,6 +57,11 @@ class BinarySearchTree {
         return root;
     }
 
+    
+    /** 
+     * @param root
+     * Para verificar el arbol en orden
+     */
     private void inOrderRec(Node root) {
         if (root != null) {
 
@@ -67,6 +86,11 @@ class BinarySearchTree {
         inOrderRec(root);
     }
 
+    
+    /** 
+     * @param root
+     * @param key
+     */
     public void getNodeRec(Node root, String key){
         if (root != null) 
         {
@@ -81,6 +105,11 @@ class BinarySearchTree {
         
     }
 
+    
+    /** 
+     * @param key
+     * @return String[]
+     */
     public String[] getNode(String key) {
         arr = null;
         getNodeRec(root, key);

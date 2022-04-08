@@ -9,6 +9,7 @@ public class Main {
         diccionario.readFile();
         Boolean on = true;
 
+        //Menu que corre hasta que se salga el usuario del programa
         while (on){
             System.out.println("\n Diccionario - English - Español - Français");
             System.out.println("1. Ver diccionario");
@@ -19,6 +20,7 @@ public class Main {
     
             switch(seleccion){
             case 1:
+            //Muestra la palabra del diccionario en el idioma seleccionado 
                 System.out.println("\n Mostrar Diccionario");
                 System.out.println("Ingresa el idioma");
                 System.out.println("1. English");
@@ -30,6 +32,7 @@ public class Main {
                 break;
     
             case 2:
+            //Traduce el texto pidiendo un idioma de entrada y salida, traduce del idioma de entrada al idioma de salida
                 System.out.println("\n Traducir texto");
                 System.out.println("Ingresa el idioma de entrada: ");
                 System.out.println("1. English");
@@ -49,6 +52,7 @@ public class Main {
                 break;
     
             case 3:
+            //Cierra el programa
                 System.out.println("\n Saliendo del Diccionario");
                 on = false;
                 break;

@@ -15,10 +15,12 @@ public class Diccionario {
     PrintWriter pw = null;
     BufferedReader br = null;
 
+    //Se implementa el BST para cada idioma
     BinarySearchTree english = new BinarySearchTree();
     BinarySearchTree spanish = new BinarySearchTree();
     BinarySearchTree french = new BinarySearchTree();
 
+    //El metodo para leer el archivo general
     public void readFile() {
 
         System.out.println("Ingrese ruta del archivo: ");
@@ -37,7 +39,7 @@ public class Diccionario {
             while ((next = br.readLine()) != null) 
             {
                 String[] texto = next.toLowerCase().split(",");
-
+                //Se crea el arbol para cada idioma
                 english.insert(texto[0], texto);
                 spanish.insert(texto[1], texto);
                 french.insert(texto[2], texto);
@@ -51,6 +53,11 @@ public class Diccionario {
 
     }
 
+    
+    /** 
+     * @param choice
+     * Este metodo muestra la palabra en el idioma traducido a partir del txt con el diccionario
+     */
     public void mostrarDiccionario(int choice) {
 
         switch(choice) {
@@ -75,11 +82,18 @@ public class Diccionario {
 
     }
     
+    
+    /** 
+     * @param entrada
+     * @param salida
+     * Este metodo traduce las palabras del idioma de entrada al idioma de salida
+     */
     public void traducir(int entrada, int salida){
 
         System.out.println("Ingrese ruta del archivo: ");
         String src = input.nextLine();
 
+        //Lee el archivo
         try {
             file = new File(src);
             fr = new FileReader(file);
@@ -98,14 +112,15 @@ public class Diccionario {
             while ((next = br.readLine()) != null) 
             {
                 String traduccion = "";
-                String[] texto = next.split(" ");
+                String[] texto = next.split(" ");   //Se separa el texto del archivo por espacios
 
                 for (int i = 0; i < texto.length; i++) {
                     
                     String[] traductor = null;
+                    //Busca la palabra en los arboles dependiendo del idioma de entrada
                     switch(entrada) {
                     case 1:
-                        traductor = english.getNode(texto[i].toLowerCase());
+                        traductor = english.getNode(texto[i].toLowerCase());   
                         break;
 
                     case 2:
@@ -120,8 +135,10 @@ public class Diccionario {
                         System.out.println("No es una opcion...");
                     }
 
+                    //Verifica si se logro la traduccion
                     if (traductor == null) 
                     {
+                        //Las palabras que no se encuentran en el diccionario
                         traduccion += " *" + texto[i] + "* ";
                     } else 
                     {
@@ -138,7 +155,7 @@ public class Diccionario {
         } catch (Exception e) {
             System.out.println("Error al leer archivo");
         } finally {
-
+            //Se cierra el write
             try {
                 if (null != write) 
                 {
